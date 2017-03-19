@@ -1,8 +1,8 @@
 var requireOption = require('../common').requireOption;
 
-module.exports = function (objectrepository) {
+module.exports = function (objectRepository) {
 
-    var UserModel = requireOption(objectrepository, "userModel");
+    var UserModel = requireOption(objectRepository, "userModel");
 
     return function (req, res, next) {
 

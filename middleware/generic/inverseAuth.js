@@ -1,3 +1,3 @@
-/**
- * Created by Adam on 2017. 03. 19..
+/*
+ * Get information if the user is logged out
  */

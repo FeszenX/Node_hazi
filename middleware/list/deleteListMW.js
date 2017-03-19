@@ -1,0 +1,3 @@
+/*
+ * Delete the chosen shoppinglist
+ */

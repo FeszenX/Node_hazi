@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+    <style>
+        .my-header {
+            text-align: center;
+        }
+
+        .my-logoff {
+            float: right;
+            padding-right: 10%;
+            text-decoration: underline;
+        }
+
+        .my-container {
+            padding-left: 10%;
+            padding-right: 10%;
+        }
+
+        .my-name{
+            width: 30%;
+        }
+
+        .my-quantity{
+            width: 10%;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<div>
+    <img src="http://i.imgur.com/SJOtq6a.png" class="img-responsive center-block">
+</div>
+<h1 class="my-header">Welcome Shopping Person</h1>
+<a href="index.html" class="my-logoff">Log off</a>
+<div class="my-container">
+    <h3>Items:</h3>
+    <table class="table table-boarded ">
+        <thead>
+        <tr class="bg-success">
+            <th class="my-name">Name</th>
+            <th class="my-quantity">Quantity</th>
+            <th class="my-comment">Comment</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Item 1</td>
+            <td>10</td>
+            <td>Some comment</td>
+        </tr>
+        <tr>
+            <td>Item 2</td>
+            <td>5</td>
+            <td>Some comment</td>
+        </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-success btn-block btn-lg" href="edit.html">Edit</a>
+    <a class="btn btn-success btn-block btn-lg" href="singedin.html">Back</a>
+</div>
+</body>
+</html>

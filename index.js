@@ -12,7 +12,7 @@ app.use(session({
         maxAge: 60000
     },
     resave: true,
-    saveUninitalized: false
+    saveUninitialized: false
 }));
 
 app.use(bodyParser.json());
@@ -30,10 +30,6 @@ app.use(function (req, res, next) {
 require('./routes/outside')(app);
 require('./routes/listList')(app);
 require('./routes/oneList')(app);
-
-/*
-app.use('/static', express.static('static'));
-*/
 
 app.use(function (err, req, res, next) {
     res.status(500).send('Some problem');

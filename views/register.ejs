@@ -1,9 +1,7 @@
 <%- include('header') %>
 
-    <div>
-        <img src="http://i.imgur.com/SJOtq6a.png" class="img-responsive center-block">
-    </div>
-    <form class="my-login col-md-4 col-xs-12 col-sm-6" action="lists.ejs">
+<div class="col-md-4 col-xs-12 col-sm-6">
+    <form action="lists.ejs">
         <div class="form-group">
             <label >Username:</label>
             <input type="text" class="form-control text-input" id="username" placeholder="Enter username" required>
@@ -19,8 +17,7 @@
         <input type="submit" class="btn-block btn btn-success btn-lg" value="Sign in"><br/>
     </form>
     <div class="clearfix"></div>
-    <form class="my-login col-md-4 col-xs-12 col-sm-6" action="index.ejs">
-        <input type="submit" class="btn-block btn btn-success btn-lg" value="back"><br/>
-    </form>
-</body>
-</html>
+    <a href="/" class="btn-block btn btn-success btn-lg">Back</a>
+</div>
+
+<%- include('footer') %>

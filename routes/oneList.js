@@ -26,7 +26,7 @@ module.exports = function (app) {
     app.use('/list/:listid',
         authMW(objectRepository),
         getListMW(objectRepository),
-        renderMW(objectRepository)
+        renderMW(objectRepository, 'list')
     );
 
     /*
@@ -38,7 +38,7 @@ module.exports = function (app) {
         getItemListMW(objectRepository),
         getItemMW(objectRepository),
         updateItemMW(objectRepository),
-        renderMW(objectRepository, 'itemmod')
+        renderMW(objectRepository, 'items')
     );
 
     /*

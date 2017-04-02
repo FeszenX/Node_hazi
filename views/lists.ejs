@@ -1,30 +1,26 @@
 <%- include('header') %>
+<%- include('welcome') %>
 
 <div>
-    <img src="http://i.imgur.com/SJOtq6a.png" class="img-responsive center-block">
-</div>
-<h1 class="my-header">Welcome Shopping Person</h1>
-<a href="index.ejs" class="my-logoff">Log off</a>
-<div class="my-container">
-    <h3>Your Shopping list:</h3>
-    <div>
-        <form class="my-form">
-            <a class="col-md-2 col-xs-6 col-sm-3 my-link" href="list.ejs">List 1</a>
-            <input type="submit" class="btn btn-success btn-sm" value="Del">
-        </form>
-    </div>
-    <div>
-        <form class="my-form">
-            <a class="col-md-2 col-xs-6 col-sm-3 my-link" href="list.ejs">List 2</a>
-            <input type="submit" class="btn btn-success btn-sm" value="Del">
-        </form>
-    </div>
-    <div class="clearfix"></div>
-    <form class="my-form">
-        <input class="col-md-2 col-xs-6 col-sm-3" type="text" value="+ Add new">
+    <div class="my-container">
+        <h3>Your Shopping list:</h3>
+
+        <% lists.forEach(function (item){ %>
+        <div>
+            <form class="my-form">
+                <a class="col-md-2 col-xs-6 col-sm-3 my-link" href="/list/<%= item.id %>"><%= item.name %></a>
+                <input type="submit" class="btn btn-success btn-sm" value="Del">
+            </form>
+        </div>
+        <% }); %>
+
         <div class="clearfix"></div>
-        <input type="submit" class="btn btn-success btn-sm add-list" value="Add">
-    </form>
+        <form class="my-form">
+            <input class="col-md-2 col-xs-6 col-sm-3" type="text" value="+ Add new">
+            <div class="clearfix"></div>
+            <input type="submit" class="btn btn-success btn-sm add-list" value="Add">
+        </form>
+    </div>
 </div>
-</body>
-</html>
+
+<%- include('footer') %>

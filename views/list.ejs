@@ -1,10 +1,6 @@
 <%- include('header') %>
+<%- include('welcome') %>
 
-<div>
-    <img src="http://i.imgur.com/SJOtq6a.png" class="img-responsive center-block">
-</div>
-<h1 class="my-header">Welcome Shopping Person</h1>
-<a href="index.ejs" class="my-logoff">Log off</a>
 <div class="my-container">
     <h3>Items:</h3>
     <table class="table table-boarded ">
@@ -16,20 +12,19 @@
         </tr>
         </thead>
         <tbody>
+
+        <% listItems.forEach(function(item){ %>
         <tr>
-            <td>Item 1</td>
-            <td>10</td>
-            <td>Some comment</td>
+            <td><%= item.name %></td>
+            <td><%= item.quantity %></td>
+            <td><%= item.comment %></td>
         </tr>
-        <tr>
-            <td>Item 2</td>
-            <td>5</td>
-            <td>Some comment</td>
-        </tr>
+        <% }); %>
+
         </tbody>
     </table>
     <a class="btn btn-success btn-block btn-lg" href="items.ejs">Edit</a>
-    <a class="btn btn-success btn-block btn-lg" href="lists.ejs">Back</a>
+    <a class="btn btn-success btn-block btn-lg" href="/lists">Back</a>
 </div>
-</body>
-</html>
+
+<%- include('footer') %>

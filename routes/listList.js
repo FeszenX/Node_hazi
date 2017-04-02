@@ -21,7 +21,7 @@ module.exports = function (app) {
     app.use('/lists',
         authMW(objectRepository),
         getListListMW(objectRepository),
-        renderMW(objectRepository)
+        renderMW(objectRepository, 'lists')
     );
 
     /*
@@ -30,7 +30,7 @@ module.exports = function (app) {
     app.use('/lists/new',
         authMW(objectRepository),
         addListMW(objectRepository),
-        renderMW(objectRepository)
+        renderMW(objectRepository, 'lists')
     );
 
     /*
@@ -40,7 +40,6 @@ module.exports = function (app) {
         authMW(objectRepository),
         getListMW(objectRepository),
         deleteListMW(objectRepository),
-        renderMW(objectRepository),
         function (req, res, next) {
             return res.redirect('/lists');
         }

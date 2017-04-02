@@ -34,7 +34,7 @@ require('./routes/oneList')(app);
 app.use(function (err, req, res, next) {
     res.status(500).send('Some problem');
     console.error(err.stack);
-})
+});
 
 var server = app.listen(3000, function () {
     console.log('Listening on localhost:3000');

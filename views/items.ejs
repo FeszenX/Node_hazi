@@ -1,25 +1,22 @@
 <%- include('header') %>
 <%- include('welcome') %>
 
-<div class="my-container">
+<div>
     <h3>Items:</h3>
-    <form class="my-form">
-        <div class="my-lineitem">
-            <input class="my-name" type="text" value="Item 1">
-            <input class="my-quantity" type="text" value="10">
-            <input class="my-comment" type="text" value="Some comment">
-            <input class="btn btn-success" type="submit" value="Save">
-            <input class="btn btn-success" type="submit" value="Del">
-        </div>
+
+    <% listItems.forEach(function(item){ %>
+    <form>
         <div>
-            <input class="my-name" type="text" value="Item 2">
-            <input class="my-quantity" type="text" value="5">
-            <input class="my-comment" type="text" value="Some comment">
+            <input type="text" value="<%= item.name %>">
+            <input type="text" value="<%= item.quantity %>">
+            <input type="text" value="<%= item.comment %>">
             <input class="btn btn-success" type="submit" value="Save">
             <input class="btn btn-success" type="submit" value="Del">
         </div>
     </form>
-    <a class="btn btn-success btn-block btn-lg" href="lists.ejs">Back</a>
+    <% }); %>
+
+    <a class="btn btn-success btn-block btn-lg" href="/lists">Back</a>
 </div>
 
 <%- include('footer') %>

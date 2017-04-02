@@ -23,7 +23,11 @@
 
         </tbody>
     </table>
-    <a class="btn btn-success btn-block btn-lg" href="items.ejs">Edit</a>
+
+    <% list.forEach(function (item){ %>
+    <a class="btn btn-success btn-block btn-lg" href="/items/<%= item.id %>">Edit</a>
+    <% }); %>
+
     <a class="btn btn-success btn-block btn-lg" href="/lists">Back</a>
 </div>
 

@@ -30,6 +30,16 @@ module.exports = function (app) {
     );
 
     /*
+    * The page to edit items
+    */
+    app.use('/items/:listid',
+        authMW(objectRepository),
+        getListMW(objectRepository),
+        getItemListMW(objectRepository),
+        renderMW(objectRepository, 'items')
+    );
+
+    /*
      * Edit specific item of specific shoppinglist
      */
     app.use('/items/:listid/:itemid/save',

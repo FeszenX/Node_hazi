@@ -7,9 +7,13 @@ var addListMW = require('../middleware/list/addListMW');
 var deleteListMW = require('../middleware/list/deleteListMW');
 
 module.exports = function (app) {
+    /*
     var objectRepository = {
         listModel: listModel
     };
+    */
+
+    var objectRepository;
 
     /*
      * List of shoppinglists

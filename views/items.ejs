@@ -1,52 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        .my-form{
-            margin: 10px;
-        }
+<%- include('header') %>
 
-        .my-header {
-            text-align: center;
-        }
-
-        .my-logoff {
-            float: right;
-            padding-right: 10%;
-            text-decoration: underline;
-        }
-
-        .my-container {
-            padding-left: 10%;
-            padding-right: 10%;
-        }
-
-        .my-name{
-            width: 20%;
-        }
-
-        .my-quantity{
-            width: 7%;
-        }
-
-        .my-comment{
-            width: 50%;
-        }
-
-        .my-lineitem{
-            margin-bottom: 10px;
-        }
-    </style>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</head>
-<body>
 <div>
     <img src="http://i.imgur.com/SJOtq6a.png" class="img-responsive center-block">
 </div>
 <h1 class="my-header">Welcome Shopping Person</h1>
-<a href="index.html" class="my-logoff">Log off</a>
+<a href="index.ejs" class="my-logoff">Log off</a>
 <div class="my-container">
     <h3>Items:</h3>
     <form class="my-form">
@@ -65,7 +23,7 @@
             <input class="btn btn-success" type="submit" value="Del">
         </div>
     </form>
-    <a class="btn btn-success btn-block btn-lg" href="lists.html">Back</a>
+    <a class="btn btn-success btn-block btn-lg" href="lists.ejs">Back</a>
 </div>
 </body>
 </html>

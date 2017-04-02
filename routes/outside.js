@@ -6,9 +6,13 @@ var renderMW = require("../middleware/generic/render");
 
 module.exports = function (app) {
 
+    /*
     var objectRepository = {
         userModel: userModel
     };
+    */
+
+    var objectRepository;
 
     /*
      * Main page

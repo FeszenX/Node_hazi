@@ -1,11 +1,12 @@
-var requireOption = require('../common').requireOption;
+//var requireOption = require('../common').requireOption;
 
 module.exports = function (objectRepository) {
 
-    var UserModel = requireOption(objectRepository, "userModel");
+    //var UserModel = requireOption(objectRepository, "userModel");
 
     return function (req, res, next) {
 
+        /*
         if ((typeof req.body === 'undefined') || (typeof req.body.email === 'undefined') || req.body.password === 'undefined') {
             return next();
         }
@@ -33,6 +34,8 @@ module.exports = function (objectRepository) {
             })
             
         });
+        */
+        return next();
 
     };
 

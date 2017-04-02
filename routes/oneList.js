@@ -10,10 +10,15 @@ var updateItemMW = require('../middleware/item/updateItemMW');
 var addItemMW = require('../middleware/item/addItemMW');
 
 module.exports = function (app) {
+
+    /*
     var objectRepository = {
         listModel: listModel,
         itemModel: itemModel
     };
+    */
+
+    var objectRepository;
 
     /*
      * View of specific shoppinglist

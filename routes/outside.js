@@ -18,16 +18,17 @@ module.exports = function (app) {
      * Main page
      */
     app.get('/',
-        mainRedirectMW(objectRepository)
+        mainRedirectMW(objectRepository),
+        renderMW(objectRepository, 'index')
     );
 
     /*
      * Login page
      */
-    app.use('/',
+    app.use('/login',
         inverseAuthMW(objectRepository),
         checkUserLoginMW(objectRepository),
-        renderMW(objectRepository, 'index')
+        renderMW(objectRepository, 'login')
     );
 
     /*

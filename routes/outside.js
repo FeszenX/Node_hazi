@@ -33,10 +33,10 @@ module.exports = function (app) {
     /*
      * Registration page
      */
-    app.use('/reg',
+    app.use('/register',
         inverseAuthMW(objectRepository),
         checkUserRegistrationMW(objectRepository),
-        renderMW(objectRepository, 'reg')
+        renderMW(objectRepository, 'register')
     );
 
 };

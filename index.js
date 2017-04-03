@@ -6,6 +6,8 @@ var bodyParser = require('body-parser');
 
 app.set('view engine', 'ejs');
 
+app.use(express.static('public'));
+
 app.use(session({
     secret: 'keyboard cat',
     cookie: {

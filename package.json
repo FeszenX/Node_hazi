@@ -1,13 +1,14 @@
 {
-  "name": "hazi_2",
+  "name": "Node_hazi",
   "version": "1.0.0",
-  "description": "Szerver oldali JavaScript 2. hazi feladat.",
+  "description": "Szerver oldali JavaScript házi feladat.",
   "main": "index.js",
   "dependencies": {
     "body-parser": "^1.17.1",
     "ejs": "^2.5.6",
     "express": "^4.15.0",
-    "express-session": "^1.15.2"
+    "express-session": "^1.15.2",
+    "mongoose": "^4.9.4"
   },
   "devDependencies": {},
   "scripts": {

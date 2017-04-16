@@ -3,7 +3,7 @@ var db = require('../config/db');
 
 var Shoppinglist = db.model('Shoppinglist', {
     name: String,
-    owner: Number,
+    owner_email: String,
     item: {
         name: String,
         quantity: Number,

@@ -9,16 +9,15 @@ var deleteItemMW = require('../middleware/item/deleteItemMW');
 var updateItemMW = require('../middleware/item/updateItemMW');
 var addItemMW = require('../middleware/item/addItemMW');
 
+var listModel = require('../models/list');
+var userModel = require('../models/user');
+
 module.exports = function (app) {
 
-    /*
     var objectRepository = {
         listModel: listModel,
-        itemModel: itemModel
+        userModel: userModel
     };
-    */
-
-    var objectRepository;
 
     /*
      * View of specific shoppinglist

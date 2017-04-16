@@ -5,15 +5,15 @@ var checkUserLoginMW = require('../middleware/user/checkUserLogin');
 var checkUserRegistrationMW = require('../middleware/user/checkUserRegistration');
 var renderMW = require("../middleware/generic/render");
 
+var listModel = require('../models/list');
+var userModel = require('../models/user');
+
 module.exports = function (app) {
 
-    /*
     var objectRepository = {
+        listModel: listModel,
         userModel: userModel
     };
-    */
-
-    var objectRepository;
 
     /*
      * Main page

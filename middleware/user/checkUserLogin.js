@@ -1,4 +1,4 @@
-//var requireOption = require('../common').requireOption;
+var requireOption = require('../common').requireOption;
 
 module.exports = function (objectRepository) {
     
@@ -7,7 +7,23 @@ module.exports = function (objectRepository) {
             return next();
         }
 
-        req.session.userid = req.body.email;
+        userModel.findOne({
+            email: req.body.email
+        }, function (err, result) {
+                if ((err) || (!result)) {
+                    res.tpl.error.push('Your email address is not registered!');
+                    return next();
+                }
+
+                if (result.password !== req.body.password) {
+                    res.tpl.error.push('Wrong password!');
+                }
+
+                req.session.userid = result._id;
+
+                return res.redirect('/lists');
+            }
+        )
 
         return next();
     };

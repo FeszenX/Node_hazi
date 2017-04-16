@@ -6,14 +6,15 @@ var getListMW = require('../middleware/list/getListListMW');
 var addListMW = require('../middleware/list/addListMW');
 var deleteListMW = require('../middleware/list/deleteListMW');
 
-module.exports = function (app) {
-    /*
-    var objectRepository = {
-        listModel: listModel
-    };
-    */
+var listModel = require('../models/list');
+var userModel = require('../models/user');
 
-    var objectRepository;
+module.exports = function (app) {
+
+    var objectRepository = {
+        listModel: listModel,
+        userModel: userModel
+    };
 
     /*
      * List of shoppinglists

@@ -3,7 +3,8 @@ var requireOption = require('../common').requireOption;
 module.exports = function (objectRepository) {
     
     return function (req, res, next) {
-        if ((typeof req.body === 'undefined') || (typeof req.body.email === 'undefined') || (typeof req.body.password === 'undefined')) {
+        if ((typeof req.body === 'undefined') || (typeof req.body.email === 'undefined') ||
+            (typeof req.body.password === 'undefined')) {
             return next();
         }
 
@@ -20,12 +21,9 @@ module.exports = function (objectRepository) {
                 }
 
                 req.session.userid = result._id;
+                console.log('name: ' + result.email);
 
                 return res.redirect('/lists');
-            }
-        )
-
-        //return next();
+            });
     };
-    
 };

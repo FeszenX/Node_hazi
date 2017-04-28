@@ -1,4 +1,4 @@
-//var requireOption = require('../common').requireOption;
+var requireOption = require('../common').requireOption;
 
 module.exports = function (objectRepository) {
 
@@ -6,7 +6,6 @@ module.exports = function (objectRepository) {
 
     return function (req, res, next) {
 
-        /*
         if ((typeof req.body === 'undefined') || (typeof req.body.email === 'undefined') || req.body.password === 'undefined') {
             return next();
         }
@@ -31,12 +30,7 @@ module.exports = function (objectRepository) {
             newUser.password = req.body.password;
             newUser.save(function (err) {
                 return res.redirect('/login');
-            })
-            
+            });
         });
-        */
-        return next();
-
     };
-
 };

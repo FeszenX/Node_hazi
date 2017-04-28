@@ -6,7 +6,6 @@ module.exports = function (objectRepository) {
 
     return function (req, res, next) {
 
-        /*
         if ((typeof req.param('userid') === 'undefined') || (req.param('userid') === 'null' )) {
             return next();
         }
@@ -20,9 +19,5 @@ module.exports = function (objectRepository) {
 
             return next();
         });
-        */
-        return next();
-
     };
-
 };

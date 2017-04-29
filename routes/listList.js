@@ -9,6 +9,8 @@ var deleteListMW = require('../middleware/list/deleteListMW');
 var listModel = require('../models/list');
 var userModel = require('../models/user');
 
+var loggerMW = require('../middleware/loggerMW');
+
 module.exports = function (app) {
 
     var objectRepository = {
@@ -17,18 +19,10 @@ module.exports = function (app) {
     };
 
     /*
-     * List of shoppinglists
-     */
-    app.use('/lists',
-        authMW(objectRepository),
-        getListListMW(objectRepository),
-        renderMW(objectRepository, 'lists')
-    );
-
-    /*
      * Add new shoppinglist
      */
     app.use('/lists/new',
+        loggerMW(objectRepository, '/lists/new REACHED'),
         authMW(objectRepository),
         addListMW(objectRepository),
         renderMW(objectRepository, 'lists')
@@ -37,7 +31,8 @@ module.exports = function (app) {
     /*
      * Delete specific task
      */
-    app.use('/list/:listid/delete',
+    app.use('/lists/delete',
+        loggerMW(objectRepository, '/lists/delete REACHED'),
         authMW(objectRepository),
         getListMW(objectRepository),
         deleteListMW(objectRepository),
@@ -46,4 +41,13 @@ module.exports = function (app) {
         }
     );
 
+    /*
+     * List of shoppinglists
+     */
+    app.use('/lists',
+        loggerMW(objectRepository, '/lists REACHED'),
+        authMW(objectRepository),
+        getListListMW(objectRepository),
+        renderMW(objectRepository, 'lists')
+    );
 };

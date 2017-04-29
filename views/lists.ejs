@@ -7,16 +7,17 @@
 
         <% lists.forEach(function (item){ %>
         <div>
-            <form class="my-form">
-                <a class="col-md-2 col-xs-6 col-sm-3 my-link" href="/list/<%= item.id %>"><%= item.name %></a>
+            <form class="my-form" action="/lists/delete" method="POST">
+                <a class="col-md-2 col-xs-6 col-sm-3 my-link" href="/list/<%= item._id %>"><%= item.name %></a>
+                <input type="hidden" name="listid" id="listid" value="<%= item._id %>">
                 <input type="submit" class="btn btn-success btn-sm" value="Del">
             </form>
         </div>
         <% }); %>
 
         <div class="clearfix"></div>
-        <form class="my-form">
-            <input class="col-md-2 col-xs-6 col-sm-3" type="text" value="+ Add new">
+        <form class="my-form" method="POST" action="/lists/new">
+            <input class="col-md-2 col-xs-6 col-sm-3" type="text" id="newName" name="newName" placeholder="+ Add new">
             <div class="clearfix"></div>
             <input type="submit" class="btn btn-success btn-sm add-list" value="Add">
         </form>

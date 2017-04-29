@@ -1,4 +1,4 @@
 var mongoose = require('mongoose');
-mongoose.connect('localhost/shoppinglist');
+mongoose.connect('mongodb://localhost/shoppinglist');
 
 module.exports = mongoose;

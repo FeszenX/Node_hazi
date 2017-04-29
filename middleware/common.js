@@ -5,4 +5,4 @@ function requireOption(objectRepository, propertyName) {
     throw new TypeError(propertyName + ' required');
 }
 
-module.exports.requrireOptions = requireOption;
+module.exports.requireOption = requireOption;

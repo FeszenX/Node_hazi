@@ -12,6 +12,8 @@ var addItemMW = require('../middleware/item/addItemMW');
 var listModel = require('../models/list');
 var userModel = require('../models/user');
 
+var loggerMW = require('../middleware/loggerMW');
+
 module.exports = function (app) {
 
     var objectRepository = {

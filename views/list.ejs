@@ -1,5 +1,5 @@
 <%- include('header') %>
-<%- include('welcome') %>
+<%- include('welcome', {username: username}) %>
 
 <div class="my-container">
     <h3>Items:</h3>
@@ -32,7 +32,7 @@
         <label>Comment:&nbsp;</label>
         <input type="text" name="comment">
         <input class="btn btn-success btn-block btn-lg" type="submit" value="Add item">
-    </form>
+    </form><br/>
 
     <a class="btn btn-success btn-block btn-lg" href="/items/<%= listId %>">Edit</a>
 

@@ -19,22 +19,6 @@ module.exports = function (objectRepository) {
         newList.owner_email = req.session.email;
         newList.item = [];
 
-        var oneItem = {
-            name: 'hello',
-            quantity: 1,
-            comment: 'No comment'
-        };
-
-        newList.item.push(oneItem);
-
-        var oneItem = {
-            name: 'asd',
-            quantity: 12,
-            comment: 'No comment 2'
-        };
-
-        newList.item.push(oneItem);
-
         newList.save();
 
         return res.redirect('/lists');

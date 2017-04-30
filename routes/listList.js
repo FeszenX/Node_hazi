@@ -31,7 +31,7 @@ module.exports = function (app) {
     /*
      * Delete specific task
      */
-    app.use('/lists/delete',
+    app.use('/lists/:listid/delete',
         loggerMW(objectRepository, '/lists/delete REACHED'),
         authMW(objectRepository),
         getListMW(objectRepository),

@@ -25,6 +25,7 @@ module.exports = function (objectRepository) {
 
                 req.session.userid = result._id;
                 req.session.email = result.email;
+                req.session.username = result.name;
 
                 return res.redirect('/lists');
         });

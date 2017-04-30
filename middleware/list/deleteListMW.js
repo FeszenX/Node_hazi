@@ -10,7 +10,7 @@ module.exports = function (objectRepository) {
 
     return function (req, res, next) {
         ListModel.findOne({
-            _id: req.body.listid
+            _id: req.params.listid
         }, function (err, result) {
             if ((err) || (!result)) {
                 res.tpl.error.push('Invalid list id');

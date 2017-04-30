@@ -8,6 +8,7 @@ module.exports = function (objectRepository) {
         if (typeof req.session.userid === 'undefined') {
             return res.redirect('/');
         }
+        res.tpl.username = req.session.username;
         return next();
     };
 

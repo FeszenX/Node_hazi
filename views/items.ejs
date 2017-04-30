@@ -1,5 +1,5 @@
 <%- include('header') %>
-<%- include('welcome') %>
+<%- include('welcome', {username: username}) %>
 
 <div>
     <h3>Items:</h3>
@@ -10,13 +10,13 @@
             <label>Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <input type="text" name="name" value="<%= item.name %>"><br/>
             <label>Quantity: &nbsp;</label>
-            <input type="text" name="quantity" value="<%= item.quantity %>"><br/>
+            <input type="number" name="quantity" value="<%= item.quantity %>"><br/>
             <label>Comment:&nbsp;</label>
             <input type="text" name="comment" value="<%= item.comment %>"><br/>
             <input class="btn btn-success" type="submit" value="Save">
             <a href="/items/<%= listId %>/<%= item._id %>/del" class="btn btn-success" type="submit">Del</a>
         </div>
-    </form>
+    </form><br/>
     <% }); %>
 
     <a class="btn btn-success btn-block btn-lg" href="/list/<%= listId %>">Back</a>

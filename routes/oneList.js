@@ -3,7 +3,6 @@ var renderMW = require('../middleware/generic/render');
 
 var getListMW = require('../middleware/list/getListMW');
 
-var getItemListMW = require('../middleware/item/getItemListMW');
 var getItemMW = require('../middleware/item/getItemMW');
 var deleteItemMW = require('../middleware/item/deleteItemMW');
 var updateItemMW = require('../middleware/item/updateItemMW');
@@ -46,7 +45,6 @@ module.exports = function (app) {
         loggerMW(objectRepository, '/items/:listid/:itemid/save REACHED'),
         authMW(objectRepository),
         getListMW(objectRepository),
-        getItemListMW(objectRepository),
         getItemMW(objectRepository),
         updateItemMW(objectRepository),
         renderMW(objectRepository, 'items')
@@ -59,7 +57,6 @@ module.exports = function (app) {
         loggerMW(objectRepository, '/items/:listid/:itemid/del REACHED'),
         authMW(objectRepository),
         getListMW(objectRepository),
-        getItemListMW(objectRepository),
         getItemMW(objectRepository),
         deleteItemMW(objectRepository),
         function (req, res, next) {

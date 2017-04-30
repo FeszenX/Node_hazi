@@ -24,11 +24,19 @@
         </tbody>
     </table>
 
-    <% list.forEach(function (item){ %>
-    <a class="btn btn-success btn-block btn-lg" href="/items/<%= item.id %>">Edit</a>
-    <% }); %>
+    <form action="/items/<%= listId %>/add" method="POST">
+        <label>Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input type="text" name="name"><br/>
+        <label>Quantity: &nbsp;</label>
+        <input type="number" name="quantity"><br/>
+        <label>Comment:&nbsp;</label>
+        <input type="text" name="comment">
+        <input class="btn btn-success btn-block btn-lg" type="submit" value="Add item">
+    </form>
 
-    <a class="btn btn-success btn-block btn-lg" href="/lists">Back</a>
+    <a class="btn btn-success btn-block btn-lg" href="/items/<%= listId %>">Edit</a>
+
+    <a class="btn btn-success btn-block btn-lg" href="/lists/">Back</a>
 </div>
 
 <%- include('footer') %>

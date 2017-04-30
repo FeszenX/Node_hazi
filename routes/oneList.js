@@ -22,28 +22,28 @@ module.exports = function (app) {
     };
 
     /*
+     * Add new item
+     */
+    app.use('/items/:listid/add',
+        loggerMW(objectRepository, '/items/:listid/add REACHED'),
+        addItemMW(objectRepository)
+    );
+
+    /*
      * View of specific shoppinglist
      */
     app.use('/list/:listid',
+        loggerMW(objectRepository, '/list/:listid REACHED'),
         authMW(objectRepository),
         getListMW(objectRepository),
         renderMW(objectRepository, 'list')
     );
 
     /*
-    * The page to edit items
-    */
-    app.use('/items/:listid',
-        authMW(objectRepository),
-        getListMW(objectRepository),
-        getItemListMW(objectRepository),
-        renderMW(objectRepository, 'items')
-    );
-
-    /*
      * Edit specific item of specific shoppinglist
      */
     app.use('/items/:listid/:itemid/save',
+        loggerMW(objectRepository, '/items/:listid/:itemid/save REACHED'),
         authMW(objectRepository),
         getListMW(objectRepository),
         getItemListMW(objectRepository),
@@ -56,6 +56,7 @@ module.exports = function (app) {
      * Delete specific item from specific shoppinglist
      */
     app.use('/items/:listid/:itemid/del',
+        loggerMW(objectRepository, '/items/:listid/:itemid/del REACHED'),
         authMW(objectRepository),
         getListMW(objectRepository),
         getItemListMW(objectRepository),
@@ -65,5 +66,16 @@ module.exports = function (app) {
             return res.redirect('/list/:listid');
         }
     );
+
+    /*
+     * The page to edit items
+     */
+    app.use('/items/:listid',
+        loggerMW(objectRepository, '/list/:listid REACHED'),
+        authMW(objectRepository),
+        getListMW(objectRepository),
+        renderMW(objectRepository, 'items')
+    );
+
 
 };

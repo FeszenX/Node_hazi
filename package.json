@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "body-parser": "^1.17.1",
+    "chai": "^3.5.0",
     "ejs": "^2.5.6",
     "express": "^4.15.0",
     "express-session": "^1.15.2",
@@ -13,7 +14,7 @@
   "devDependencies": {},
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "Adam Lipcsei",
   "license": "ISC"

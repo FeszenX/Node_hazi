@@ -38,6 +38,8 @@ app.use(function (err, req, res, next) {
     console.error(err.stack);
 });
 
-var server = app.listen(3000, function () {
-    console.log('Listening on localhost:3000');
+var port = 3000;
+
+var server = app.listen(port, function () {
+    console.log('Listening on localhost:' + port);
 });

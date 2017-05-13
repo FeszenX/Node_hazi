@@ -10,6 +10,9 @@ module.exports = function (objectRepository) {
             return next();
         }
 
+        console.log('EMAIL: ' + req.body.email);
+        console.log('PASSWORD: ' + req.body.password);
+
         userModel.findOne({
             email: req.body.email
         }, function (err, result) {

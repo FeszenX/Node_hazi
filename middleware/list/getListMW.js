@@ -8,31 +8,35 @@ module.exports = function (objectRepository) {
 
     return function (req, res, next) {
 
-        var listModel = requireOption(objectRepository, 'listModel');
+        if ((typeof req === 'undefined') || (typeof req.params === 'undefined') ||
+            (typeof req.params.listid === 'undefined')) {
+            return next();
+        }
 
-        var itemArray = [];
+        var listModel = requireOption(objectRepository, 'listModel');
 
         var listId = req.params.listid;
 
         listModel.findOne({
             _id: listId
         }, function (err, result) {
-            if (err) {
-                return next();
-            }
-            if (result) {
-                result.item.forEach(function (currentValue) {
-                    itemArray.push(currentValue);
-                });
-                res.tpl.listItems = itemArray;
-                res.tpl.listId = listId;
 
+            if ((err) || (!result)) {
                 return next();
             }
+
+            var itemArray = [];
+
+            result.item.forEach(function (currentValue) {
+                itemArray.push(currentValue);
+            });
+
+            res.tpl.listItems = itemArray;
+            res.tpl.listId = listId;
+
             return next();
 
         });
-
 
 
     };

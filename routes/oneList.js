@@ -67,12 +67,14 @@ module.exports = function (app) {
     /*
      * The page to edit items
      */
+
     app.use('/items/:listid',
-        loggerMW(objectRepository, '/list/:listid REACHED'),
+        loggerMW(objectRepository, '/items/:listid REACHED'),
         authMW(objectRepository),
         getListMW(objectRepository),
         renderMW(objectRepository, 'items')
     );
+
 
 
 };

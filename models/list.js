@@ -10,8 +10,7 @@ var Shoppinglist = db.model('Shoppinglist', {
         quantity: Number,
         comment: String
     }
-    ],
-    id: Number
+    ]
 });
 
 module.exports = Shoppinglist;

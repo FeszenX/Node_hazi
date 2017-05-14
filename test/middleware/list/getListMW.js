@@ -86,8 +86,11 @@ describe('getListMW middleware ', function () {
                 done();
             })
         });
+    });
 
-        it('findOne result is not empty and got back the proper list',
+        describe('should call next when and write the proper values to res.tpl when', function () {
+
+        it('findOne result is not empty',
             function (done) {
 
             var hivd = false;

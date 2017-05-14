@@ -6,7 +6,7 @@ var requireOption = require('../common').requireOption;
 
 module.exports = function (objectRepository) {
 
-    var ListModel = requireOption(objectRepository, 'listModel');
+    var listModel = requireOption(objectRepository, 'listModel');
 
     return function (req, res, next) {
         if ((typeof req.body === 'undefined') || (typeof req.body.name === 'undefined') ||
@@ -16,50 +16,38 @@ module.exports = function (objectRepository) {
             return res.redirect('/items/' + req.params.listid);
         }
 
-        var tempList = new ListModel;
-
-        ListModel.findOne({
+        listModel.findOne({
             _id: req.params.listid
         }, function (err, result) {
-            if (err) {
+
+            if ((err) || (!result)) {
                 res.tpl.error.push('Error in database request');
+                return res.redirect('/items/' + req.params.listid);
             }
-            if (result) {
-                tempList._id = result._id;
-                tempList.name = result.name;
-                tempList.owner_email = result.owner_email;
-                tempList.item = result.item;
 
-                var index;
+            var index = 0;
 
-                for (var i = 0; i < tempList.item.length; i++) {
-                    if (tempList.item[i]._id.toString() === req.params.itemid.toString()) {
-                        index = i;
-                        break;
-                    }
+            for (var i = 0; i < result.item.length; i++) {
+                if (result.item[i]._id.toString() === req.params.itemid.toString()) {
+                    index = i;
+                    break;
                 }
-
-                tempList.item.splice(index, 1);
-
-                var oneItem = {
-                    name: req.body.name,
-                    quantity: req.body.quantity,
-                    comment: req.body.comment
-                };
-
-                tempList.item.splice(index, 0, oneItem);
-
-                result.remove(function (err) {
-                    if (err) {
-                        res.tpl.error.push('Remove failed');
-                        return next();
-                    }
-                    tempList.save();
-                    return res.redirect('/items/' + req.params.listid);
-                });
-
-
             }
+
+            result.item.splice(index, 1);
+
+            var oneItem = {
+                name: req.body.name,
+                quantity: req.body.quantity,
+                comment: req.body.comment
+            };
+
+            result.item.splice(index, 1, oneItem);
+
+            result.save(function (err) {
+                return res.redirect('/items/' + req.params.listid);
+            });
+
         })
     }
 };

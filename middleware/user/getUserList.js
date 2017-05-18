@@ -6,7 +6,7 @@ module.exports = function (objectRepository) {
 
     return function (req, res, next) {
         userModel.find({}, function (err, results) {
-            if (err) {
+            if ((err) || (!results)) {
                 return next();
             }
 
